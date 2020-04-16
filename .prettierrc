@@ -1,13 +1,13 @@
 {
   "overrides": [
     {
-      "files": "*.css",
+      "files": "*.scss",
       "options": {
         "singleQuote": false
       }
     },
     {
-      "files": "*.js",
+      "files": "*.{tsx,ts}",
       "options": {
         "singleQuote": true
       }
