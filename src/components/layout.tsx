@@ -1,18 +1,27 @@
 import React from 'react';
-import { useViewport } from 'react-viewport-hooks';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { Global } from './global';
 
-const Layout: React.FC = ({ children }) => {
-  const { vh } = useViewport();
+import { theme } from '../constants/theme';
 
-  return (
-    <>
-      {children}
+const Page = styled.div`
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 
-      <Global />
-    </>
-  );
-};
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: row;
+  }
+`;
+
+const Layout: React.FC = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <Page>{children}</Page>
+
+    <Global />
+  </ThemeProvider>
+);
 
 export default Layout;

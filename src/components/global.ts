@@ -8,10 +8,10 @@ export const Global = createGlobalStyle`
   body {
     margin: 0;
     min-width: 320px;
-    font-family: "Quicksand", sans-serif;
-    background-color: #131a20;
-    font-size: 1.6rem;
-    color: #f8f8f8;
+    font-family: ${({ theme }) => theme.font.family.body};
+    background-color: ${({ theme }) => theme.colors.background};
+    font-size: ${({ theme }) => theme.font.size.default};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   *,

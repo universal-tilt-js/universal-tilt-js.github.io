@@ -1,68 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
-
-import { breakpoints } from '../constants/breakpoints';
-
-interface Props {
-  background: any;
-  siteTitle?: string;
-}
 
 const HeaderWrapper = styled.header`
-  @media (min-width: ${breakpoints.md}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     top: 0;
     width: 20vw;
     min-width: 320px;
     display: block;
     height: 100vh;
-    height: var(--vh);
     position: sticky;
-    border-right: 1px solid #444;
+    border-right: 1px solid ${({ theme }) => theme.colors.border};
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
   }
 `;
 
-const Primary = styled.div``;
+const HeaderPrimary = styled.div``;
 
-const Secondary = styled.div``;
+const HeaderSecondary = styled.div``;
 
-const SplitView = styled.div`
-  @media (min-width: ${breakpoints.md}) {
+const HeaderSplitView = styled.div`
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     margin-bottom: 20px;
     flex-direction: column;
   }
 `;
 
-const Title = styled.h1``;
+const HeaderGithubLink = styled.a``;
 
-const SubTitle = styled.h2``;
+const HeaderTitle = styled.h1``;
 
-const GithubLink = styled(Link)``;
+const HeaderSubTitle = styled.h2``;
 
-const Idea = styled.h3``;
+const HeaderIdea = styled.h3``;
 
-const Header: React.FC<Props> = ({ background, siteTitle = '' }) => {
-  return (
-    <HeaderWrapper>
-      <Primary>
-        <GithubLink to="https://github.com/universal-tilt-js/universal-tilt.js">
-          <Title>universal-tilt.js</Title>
+const Header: React.FC = () => (
+  <HeaderWrapper>
+    <HeaderPrimary>
+      <HeaderGithubLink href="https://github.com/universal-tilt-js/universal-tilt.js">
+        <HeaderTitle>universal-tilt.js</HeaderTitle>
 
-          <SubTitle>See on GitHub</SubTitle>
-        </GithubLink>
-      </Primary>
+        <HeaderSubTitle>See on GitHub</HeaderSubTitle>
+      </HeaderGithubLink>
+    </HeaderPrimary>
 
-      <Secondary>
-        <Idea>Based on:</Idea>
+    <HeaderSecondary>
+      <HeaderIdea>Based on:</HeaderIdea>
 
-        <SplitView></SplitView>
-      </Secondary>
-    </HeaderWrapper>
-  );
-};
+      <HeaderSplitView></HeaderSplitView>
+    </HeaderSecondary>
+  </HeaderWrapper>
+);
 
 export default Header;

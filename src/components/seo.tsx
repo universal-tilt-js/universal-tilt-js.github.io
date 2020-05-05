@@ -1,11 +1,17 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+
+import { PageQuery } from '../../graphql-types';
+
+type Meta =
+  | { name: string; content: string; property?: undefined }[]
+  | { property: string; content: string; name?: undefined }[];
 
 interface Props {
   description?: string;
   lang?: string;
-  meta?: any; // TODO
+  meta?: Meta;
   title: string;
 }
 
@@ -15,19 +21,7 @@ const SEO: React.FC<Props> = ({
   meta = [],
   title = '',
 }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  );
+  const { site } = useStaticQuery<PageQuery>(query);
 
   const metaDescription = description || site.siteMetadata.description;
 
@@ -35,7 +29,7 @@ const SEO: React.FC<Props> = ({
     <Helmet
       htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${metaDescription}`}
       meta={[
         {
           name: `description`,
@@ -73,5 +67,17 @@ const SEO: React.FC<Props> = ({
     />
   );
 };
+
+export const query = graphql`
+  query Page {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`;
 
 export default SEO;

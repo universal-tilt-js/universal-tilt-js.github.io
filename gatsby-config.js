@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-graphql-codegen`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,51 +17,30 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
-        path: `${__dirname}/src/markdown-pages`,
-        name: `markdown-pages`,
         plugins: [
           {
             resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-              languageExtensions: [
-                {
-                  language: 'superscript',
-                  extend: 'javascript',
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-              escapeEntities: {},
-            },
           },
         ],
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `universal-tilt.js`,
+        short_name: `ut.js`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -71,8 +51,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`quicksand:400,500,700`],
-        display: 'swap',
+        fonts: [`quicksand:400,500,700`, `roboto mono\:400,500`],
+        display: "swap",
       },
     },
   ],
