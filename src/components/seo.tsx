@@ -9,10 +9,10 @@ type Meta =
   | { property: string; content: string; name?: undefined }[];
 
 interface Props {
-  description?: string;
-  lang?: string;
-  meta?: Meta;
-  title: string;
+  readonly description?: string;
+  readonly lang?: string;
+  readonly meta?: Meta;
+  readonly title: string;
 }
 
 const SEO: React.FC<Props> = ({

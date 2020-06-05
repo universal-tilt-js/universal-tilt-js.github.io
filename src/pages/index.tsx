@@ -11,7 +11,7 @@ import Preview from '../containers/preview';
 import { HomePageQuery } from '../../graphql-types';
 
 interface Props {
-  data: HomePageQuery;
+  readonly data: HomePageQuery;
 }
 
 const Main = styled.main`
