@@ -11,7 +11,7 @@
     "clean": "gatsby clean",
     "deploy": "gatsby build && gh-pages -d public -b master",
     "prettier": "prettier --write 'src/**/*.{tsx,ts,json}'",
-    "test": "echo 'Runa your tests here'"
+    "test": "echo 'Run your tests here'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
