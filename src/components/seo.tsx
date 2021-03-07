@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import { PageQuery } from '../../graphql-types';
 
+// TODO
 type Meta =
   | { name: string; content: string; property?: undefined }[]
   | { property: string; content: string; name?: undefined }[];
@@ -15,12 +16,7 @@ interface Props {
   readonly title: string;
 }
 
-const SEO: React.FC<Props> = ({
-  description,
-  lang = 'en',
-  meta = [],
-  title = '',
-}) => {
+const SEO = ({ description, lang = 'en', meta = [], title = '' }: Props) => {
   const { site } = useStaticQuery<PageQuery>(query);
 
   const metaDescription = description || site.siteMetadata.description;

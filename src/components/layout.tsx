@@ -1,15 +1,16 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Global } from './global';
-
-import { theme } from '../constants/theme';
+import { Global } from '../styles/global';
+import { theme } from '../styles/theme';
 
 const Page = styled.div`
-  max-width: 1200px;
+  max-width: 1200px; /* TODO var */
+  margin: 0 auto;
+
+  /* TODO mixin */
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: row;

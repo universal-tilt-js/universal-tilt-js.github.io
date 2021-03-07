@@ -1,13 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const Global = createGlobalStyle`
+import { ThemeType } from './theme';
+
+export const Global = createGlobalStyle<{ readonly theme: ThemeType }>`
   html {
     font-size: 62.5%;
   }
 
   body {
     margin: 0;
-    min-width: 320px;
+    min-width: ${({ theme }) => theme.breakpoints.xs};
     font-family: ${({ theme }) => theme.font.family.body};
     background-color: ${({ theme }) => theme.colors.background};
     font-size: ${({ theme }) => theme.font.size.default};
@@ -20,5 +22,15 @@ export const Global = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* TODO */
+  p {
+    /* font-size: 1.8rem; */
+    margin: 12px 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;

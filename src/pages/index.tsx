@@ -4,15 +4,15 @@ import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Header from '../components/header';
 
-import Header from '../containers/header';
-import Preview from '../containers/preview';
+import { HowToInstall } from '../components/sections/how-to-install';
+import { GettingStarted } from '../components/sections/getting-started';
+import { Autoinit } from '../components/sections/autoinit';
+import { Methods } from '../components/sections/methods';
+import { Shine } from '../components/sections/shine';
 
 import { HomePageQuery } from '../../graphql-types';
-
-interface Props {
-  readonly data: HomePageQuery;
-}
 
 const Main = styled.main`
   margin-top: 20px;
@@ -23,10 +23,12 @@ const Main = styled.main`
   }
 `;
 
-const HomePage: React.FC<Props> = ({ data }) => {
-  const { site, allMarkdownRemark } = data;
+interface Props {
+  readonly data: HomePageQuery;
+}
 
-  const { title, description } = site.siteMetadata;
+const HomePage = ({ data }: Props) => {
+  const { title, description } = data.site.siteMetadata;
 
   return (
     <Layout>
@@ -35,9 +37,12 @@ const HomePage: React.FC<Props> = ({ data }) => {
       <Header />
 
       <Main>
-        {allMarkdownRemark.edges.map(({ node }) => (
-          <Preview data={node} key={null} />
-        ))}
+        {/* <HowToInstall />
+        <GettingStarted />
+        <Autoinit />
+        <Methods /> */}
+
+        {/* <Shine /> */}
       </Main>
     </Layout>
   );
@@ -49,19 +54,6 @@ export const query = graphql`
       siteMetadata {
         title
         description
-      }
-    }
-
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            title
-            themePrimary
-            themeSecondary
-          }
-          html
-        }
       }
     }
   }
