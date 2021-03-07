@@ -7,45 +7,23 @@ const Preview = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* min-height: 380px; */
   padding: 10px 20px;
-
-  /* @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 20px 40px;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    gap: 30px;
-  } */
 `;
 
 const Title = styled.h3`
   margin: 0 0 4px;
   font-weight: 700;
   font-size: 2.5rem;
-  
-  /* -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent; */
 `;
 
 const Icon = styled(FontAwesomeIcon)`
   margin-right: 10px;
 `;
 
-const Example = styled.div`
-  /* @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
-    min-width: 40%;
-  } */
-`;
+const Example = styled.div``;
 
 const Docs = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
-    /* padding-top: 0; */
-    /* padding-left: 30px; */
-    /* width: 60%; */
     flex: 1;
   }
 `;

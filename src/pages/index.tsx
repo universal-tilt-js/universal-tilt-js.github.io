@@ -10,7 +10,7 @@ import { HowToInstall } from '../components/sections/how-to-install';
 import { GettingStarted } from '../components/sections/getting-started';
 import { Autoinit } from '../components/sections/autoinit';
 import { Methods } from '../components/sections/methods';
-import { Shine } from '../components/sections/shine';
+// import { Shine } from '../components/sections/shine';
 
 import { HomePageQuery } from '../../graphql-types';
 
@@ -37,12 +37,21 @@ const HomePage = ({ data }: Props) => {
       <Header />
 
       <Main>
-        {/* <HowToInstall />
+        <HowToInstall />
         <GettingStarted />
         <Autoinit />
-        <Methods /> */}
+        <Methods />
 
         {/* <Shine /> */}
+        {/* <Scale /> */}
+        {/* <Parallax /> */}
+        {/* <DisableX /> */}
+        {/* <DisableY /> */}
+        {/* <Reset /> */}
+        {/* <Reverse /> */}
+        {/* <Base /> */}
+        {/* <Exclude /> */}
+        {/* <ChangeEvent /> */}
       </Main>
     </Layout>
   );

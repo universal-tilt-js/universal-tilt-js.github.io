@@ -26,7 +26,6 @@ export const Global = createGlobalStyle<{ readonly theme: ThemeType }>`
 
   /* TODO */
   p {
-    /* font-size: 1.8rem; */
     margin: 12px 0;
   }
 
