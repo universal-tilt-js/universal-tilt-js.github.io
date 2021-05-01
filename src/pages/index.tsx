@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, PageProps } from 'gatsby';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
@@ -23,11 +23,7 @@ const Main = styled.main`
   }
 `;
 
-interface Props {
-  readonly data: HomePageQuery;
-}
-
-const HomePage = ({ data }: Props) => {
+const HomePage = ({ data }: PageProps<HomePageQuery>) => {
   const { title, description } = data.site.siteMetadata;
 
   return (
