@@ -18,7 +18,7 @@ export const theme = {
       code: '"Roboto Mono", monospace',
     },
     size: {
-      default: '1.8rem',
+      default: '1.6rem',
     },
   },
 } as const;

@@ -1,21 +1,33 @@
 import React from 'react';
 import { faRunning } from '@fortawesome/free-solid-svg-icons';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Preview from '../preview';
 
-export const Autoinit = () => (
-  <Preview>
-    <Preview.Docs>
-      <Preview.Title icon={faRunning}>Autoinit</Preview.Title>
+export const Autoinit = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/autoinit.md/" } }
+      ) {
+        nodes {
+          html
+        }
+      }
+    }
+  `);
 
-      <Preview.Content>
-        <p>
-          To use it, add <code>data-tilt</code> to html element e.g:
-        </p>
-        <pre className="language-html">
-          <code>&#60;div data-tilt&#62;&#60;/div&#62;</code>
-        </pre>
-      </Preview.Content>
-    </Preview.Docs>
-  </Preview>
-);
+  return (
+    <Preview>
+      <Preview.Docs>
+        <Preview.Title icon={faRunning}>Autoinit</Preview.Title>
+
+        <Preview.Content
+          dangerouslySetInnerHTML={{
+            __html: data.allMarkdownRemark.nodes[0].html,
+          }}
+        />
+      </Preview.Docs>
+    </Preview>
+  );
+};

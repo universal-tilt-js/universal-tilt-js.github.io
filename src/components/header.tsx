@@ -8,7 +8,7 @@ const flex = css`
   display: flex;
   align-items: center;
   flex-direction: column;
-`
+`;
 
 const Wrapper = styled.header`
   ${flex}

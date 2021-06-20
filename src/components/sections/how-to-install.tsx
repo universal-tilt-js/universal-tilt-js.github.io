@@ -1,28 +1,33 @@
 import React from 'react';
 import { faArrowCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Preview from '../preview';
 
-export const HowToInstall = () => (
-  <Preview>
-    <Preview.Docs>
-      <Preview.Title icon={faArrowCircleDown}>How to Install</Preview.Title>
+export const HowToInstall = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/how-to-install.md/" } }
+      ) {
+        nodes {
+          html
+        }
+      }
+    }
+  `);
 
-      <Preview.Content>
-        <p>npm / Yarn:</p>
-        <pre className="language-javascript">
-          <code>$ npm install universal-tilt.js</code>
-          <br />
-          <code>$ yarn add universal-tilt.js</code>
-        </pre>
+  return (
+    <Preview>
+      <Preview.Docs>
+        <Preview.Title icon={faArrowCircleDown}>How to Install</Preview.Title>
 
-        <p>HTML script tag:</p>
-        <pre className="language-html">
-          <code>
-            &#60;script src="/path/to/universal-tilt.js"&#62;&#60;/script&#62;
-          </code>
-        </pre>
-      </Preview.Content>
-    </Preview.Docs>
-  </Preview>
-);
+        <Preview.Content
+          dangerouslySetInnerHTML={{
+            __html: data.allMarkdownRemark.nodes[0].html,
+          }}
+        />
+      </Preview.Docs>
+    </Preview>
+  );
+};
