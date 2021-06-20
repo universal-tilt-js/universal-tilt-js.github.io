@@ -23,6 +23,8 @@ const Title = styled.h3`
 
 const Icon = styled(FontAwesomeIcon)`
   margin-right: 10px;
+  width: 25px;
+  height: 25px;
 `;
 
 const Example = styled.div`
