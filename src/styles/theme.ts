@@ -8,8 +8,6 @@ export const theme = {
   },
   colors: {
     text: '#f8f8f8',
-    // primary: '#01c135',
-    // secondary: '#7d42f4',
     background: '#131a20',
     border: '#444',
     code: '#21272d',
@@ -20,7 +18,9 @@ export const theme = {
       code: '"Roboto Mono", monospace',
     },
     size: {
-      default: '1.6rem',
+      default: '1.8rem',
     },
   },
-};
+} as const;
+
+export type ThemeType = typeof theme;

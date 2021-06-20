@@ -15,12 +15,7 @@ interface Props {
   readonly title: string;
 }
 
-const SEO: React.FC<Props> = ({
-  description,
-  lang = 'en',
-  meta = [],
-  title = '',
-}) => {
+const SEO = ({ description, lang = 'en', meta = [], title = '' }: Props) => {
   const { site } = useStaticQuery<PageQuery>(query);
 
   const metaDescription = description || site.siteMetadata.description;
