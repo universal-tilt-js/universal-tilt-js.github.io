@@ -1,6 +1,6 @@
 import React from 'react';
 import { faRunning } from '@fortawesome/free-solid-svg-icons';
-import { ReactTilt } from 'react-universal-tilt';
+import ReactTilt from 'react-universal-tilt';
 
 import Preview from '../preview';
 import { callbacks } from '../../utils/callbacks';
@@ -8,14 +8,14 @@ import { callbacks } from '../../utils/callbacks';
 export const Shine = () => (
   <Preview>
     <Preview.Example>
-      {/* <ReactTilt
+      <ReactTilt
         callbacks={callbacks}
         settings={{
           shine: true,
           'shine-save': true,
           'shine-opacity': 0.5,
         }}
-      /> */}
+      />
     </Preview.Example>
 
     <Preview.Docs>

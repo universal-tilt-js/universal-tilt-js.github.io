@@ -8,6 +8,11 @@ const Preview = styled.section`
   flex-direction: column;
   justify-content: center;
   padding: 10px 20px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 20px 40px;
+    /* flex-direction: row; */
+  }
 `;
 
 const Title = styled.h3`
@@ -20,7 +25,15 @@ const Icon = styled(FontAwesomeIcon)`
   margin-right: 10px;
 `;
 
-const Example = styled.div``;
+const Example = styled.div`
+  display: flex;
+  justify-content: center;
+
+  /* .tilt {
+    width: 200px;
+    height: 200px;
+  } */
+`;
 
 const Docs = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.xl}) {
@@ -35,6 +48,7 @@ const Content = styled.div``;
 //   readonly icon?: IconProp;
 // }
 
+// TODO update types
 Preview.Title = ({ children, icon }) => (
   <Title>
     {icon && <Icon icon={icon} />}
@@ -42,6 +56,7 @@ Preview.Title = ({ children, icon }) => (
   </Title>
 );
 
+// TODO update types
 Preview.Example = Example;
 Preview.Docs = Docs;
 Preview.Content = Content;

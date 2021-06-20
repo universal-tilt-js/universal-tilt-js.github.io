@@ -1,11 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { TiltCard } from './tilt-card';
 import { callbacks } from '../utils/callbacks';
 
-// TODO
-const flex = `
+const flex = css`
   display: flex;
   align-items: center;
   flex-direction: column;
